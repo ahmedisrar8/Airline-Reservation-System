@@ -1,0 +1,231 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="main.master.cs" Inherits="MasterPage" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+        <link rel="icon" type="image/png" sizes="16x16" href=" plugins/images/favicon.png">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+        <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href=" plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/blue-dark.css" id="theme" rel="stylesheet">
+     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+        <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+        <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+<!--<div class="top-left-part"><a class="logo" href="index.html" style="font-size:20px"><b style="margin-left:10px;margin-right:25px">Bahria</b>Airways</a></div>-->
+
+                <div class="top-left-part"><a class="logo" href="index.html"><b style="margin-top:5px;"><span  class="fa fa-2x fa-anchor"></span></b><b>BAHRIA</b>Airways</a></div>
+        <ul class="nav navbar-top-links navbar-left hidden-xs">
+            <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+     
+        </ul>
+        <ul class="nav navbar-top-links navbar-right pull-right">
+            
+                <!-- /.dropdown-messages -->
+
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#">
+                    <i class="icon-note"></i>
+                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                </a>
+                
+                <!-- /.dropdown-tasks -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src=" plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"></b> <% try { Response.Write(Session["name"].ToString()); }
+                                            catch { }%></a>
+                <ul class="dropdown-menu dropdown-user animated flipInY">
+                    <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                      <% if (Session["desg"].ToString() == "C")
+                          { %>
+                   <li><a href="wallet.aspx"><i class="ti-user"></i> My Wallet</a></li>
+                    <%} %>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="signout.aspx"><i class="fa fa-power-off"></i> Logout</a></li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+          
+            <!-- /.dropdown -->
+        </ul>
+    </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+
+        </nav>
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+             <!--   <ul class="nav" id="side-menu">
+                    <li style="padding: 10px 0 0;">
+                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Home</span></a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hide-menu">Profile</span></a>
+                    </li>
+                    <li>
+                        <a href="basic-table.html" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i><span class="hide-menu">Basic Table</span></a>
+                    </li>
+                    <li>
+                        <a href="fontawesome.html" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i><span class="hide-menu">Icons</span></a>
+                    </li>
+                    <li>
+                        <a href="map-google.html" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i><span class="hide-menu">Google Map</span></a>
+                    </li>
+                    <li>
+                        <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i><span class="hide-menu">Blank Page</span></a>
+                    </li>
+                    <li>
+                        <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class="hide-menu">Error 404</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="waves-effect"><i data-icon="F" class="fa fa-clock-o fa-fw"></i> <span class="hide-menu">Multi-Level Dropdown<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li> <a href="javascript:void(0)">Second Level Item</a> </li>
+                            <li> <a href="javascript:void(0)">Second Level Item</a> </li>
+                            <li>
+                                <a href="javascript:void(0)" class="waves-effect">Third Level <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level collapse">
+                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
+                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
+                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
+                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>-->
+                <% if (Session["desg"].ToString() == "C")
+                    { %>
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 10px 0 0;">
+                        <a href="home.aspx" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Home</span></a>
+                    </li>
+                    <li>
+                         <a href="b_flight.aspx" class="waves-effect"><i class="fa fa-plane fa-fw" aria-hidden="true"></i><span class="hide-menu">Book a Flight</span></a>
+                    </li>
+                     <li>
+                        <a href="my_bookings.aspx" class="waves-effect"><i class="fa fa-bookmark fa-fw" aria-hidden="true"></i><span class="hide-menu">My Bookings   </span></a>
+                    </li>
+                    <li>
+                        <a href="my_flight.aspx" class="waves-effect"><i class="fa fa-bookmark fa-fw" aria-hidden="true"></i><span class="hide-menu">My Flights   </span></a>
+                    </li>
+                   
+                  
+                </ul>
+                <% }
+                    else if(Session["desg"].ToString() == "A"){ %>
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 10px 0 0;">
+                        <a href="home.aspx" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Home</span></a>
+                    </li>
+                    <li>
+                        <a href="view_schedule.aspx" class="waves-effect"><i class="fa  fa-plane fa-fw" aria-hidden="true"></i><span class="hide-menu">Flight Schedule</span></a>
+                    </li>
+                    
+                    <li>
+                        <a href="view_schedule.aspx" class="waves-effect"><i class="fa  fa-ticket fa-fw" aria-hidden="true"></i><span class="hide-menu">Tickets</span></a>
+                    </li>
+                    <li>
+                        <a href="view_schedule.aspx" class="waves-effect"><i class="fa fa-book fa-fw" aria-hidden="true"></i><span class="hide-menu">Bookings</span></a>
+                    </li>
+                   
+                    
+                </ul>
+                <%} %>
+            </div>
+        </div>
+              <div id="page-wrapper">
+   
+    
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+    
+              <footer class="footer text-center"> 2017 &copy; Bahria Airways  </footer>
+        </div>
+            </div><!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src=" plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src=" plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src=" plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src=" plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!--Morris JavaScript -->
+    <script src=" plugins/bower_components/raphael/raphael-min.js"></script>
+    <script src=" plugins/bower_components/morrisjs/morris.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <script src=" plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+     <% if (Session["desg"].ToString() == "C")
+         { %>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $.toast({
+            heading: 'Welcome to Bahria Airways',
+            text: 'Reserve your flight right away.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 3500,
+            stack: 6
+        })
+    });
+    </script>
+    <%}
+    else if (Session["desg"].ToString() == "A")
+    { %>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $.toast({
+            heading: 'Hello Admin',
+            text: 'Happy Administration :).',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 3500,
+            stack: 6
+        })
+    });
+
+    </script>
+    <%} %>
+
+        
+</body>
+
+</html>

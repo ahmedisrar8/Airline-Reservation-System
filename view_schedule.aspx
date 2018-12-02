@@ -1,0 +1,128 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="main.master" AutoEventWireup="true" CodeFile="view_schedule.aspx.cs" Inherits="view_schedule" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <title>View Schedule - Bahria Airways</title>
+       <link href="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/bower_components/footable/css/footable.core.css" rel="stylesheet" />
+    <link href="plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">View Schedule</h4> </div>
+                    <%--  --%>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <h3 class="box-title">View Schedule</h3>
+                            <form class="form-horizontal" runat="server">
+                                                                <div class="form-group">
+                                    <label class="col-md-12">Plane Model & Year</label>
+                                    <div class="col-md-4">
+                                       <asp:TextBox class="form-control mydatepicker" ID="date1" runat="server" placeholder="yyyy-mm-dd" required></asp:TextBox> 
+
+                                    </div>
+                                </div>
+                                           
+                                        <asp:Button ID="Button2" class="btn btn-success" runat="server" Text="Search" OnClick="date1_TextChanged"/>
+
+                                
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+<div class="row">
+                    <div class="col-lg-12">
+                        <div class="white-box">
+                            <h3 class="box-title m-b-0">Flight Schedule</h3>
+                            <p class="text-muted m-b-20">Bahria Airways Flight Schedule For <% Response.Write("<b>"+date+"</b>"); %></p>
+                          
+                            <table id="demo-foo-row-toggler" class="table toggle-circle table-hover">
+                              
+                                  <thead>
+                                    <tr>
+                                        <th data-toggle="true"> Flight </th>
+                                         <th>Departure</th>
+                                        <th>Route</th>
+                                        <th data-hide="all">Arrival</th>
+                                        <th data-hide="all">Duration</th>
+                                        <th data-hide="all">Fare</th>
+                                        <th data-hide="all"> Status </th>
+                             
+                                                   <th data-hide="all"> Action </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                      <% Response.Write(data);%>
+                                    
+                       
+                               
+                                </tbody>
+                                 <tfoot>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="text-right">
+                                                <ul class="pagination pagination-split m-t-30"> </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    <script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="plugins/bower_components/footable/js/footable.all.min.js"></script>
+     <script src="plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js"></script>
+    <script src="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+    <script>
+        // jQuery('.mydatepicker, #datepicker').datepicker();
+       /* jQuery(function () {
+            jQuery(".mydatepicker, #datepicker").datepicker();
+            jQuery(".mydatepicker, #datepicker").on("change", function () {
+                jQuery(".mydatepicker, #datepicker").datepicker("option", "dateFormat", 'yy-mm-dd');
+            });
+        });*/
+        var dateToday = new Date();
+
+        jQuery('.mydatepicker, #datepicker').datepicker({
+            dateFormat: 'yy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+            format: 'yyyy-mm-dd',
+
+            
+           // appendText: "(yyyy-mm-dd)"
+        });
+   
+      //  jQuery("#test").datepicker("option", "dateFormat", 'yy-mm-dd');
+        function get()
+        {
+            jQuery(".mydatepicker, #datepicker").datepicker("option", "dateFormat", 'yy-mm-dd');
+            alert(document.getElementById('test').value);
+        }
+    /*    jQuery('#date-range').datepicker({
+            toggleActive: true
+        });
+        jQuery('#datepicker-inline').datepicker({
+            todayHighlight: true
+        });*/
+      
+
+        jQuery('#demo-foo-row-toggler').footable();
+        jQuery('#demo-show-entries').change(function (e) {
+            e.preventDefault();
+            var pageSize = jQuery(this).val();
+            jQuery('#demo-foo-pagination').data('page-size', pageSize);
+            jQuery('#demo-foo-pagination').trigger('footable_initialized');
+        });
+    </script>
+</asp:Content>
+

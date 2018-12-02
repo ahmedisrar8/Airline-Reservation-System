@@ -1,0 +1,41 @@
+2 Islamabad
+2 Lahore
+6 karachi
+
+KHI TO ISL
+------------------------------
+9:00 am 10:45 am khi to isl
+3:00 pm 4:45 pm khi to isl
+7:00 pm 8:45 pm khi to isl
+________________________________
+ISL TO KHI
+--------------------------------
+11:00 am 12:45 Pm isl to khi 
+5:00 pm 6:45 pm isl to khi
+9:00 pm 10:45 pm isl to khi
+
+KHI TO LHR
+------------------------------
+9:00 am 10:45 am khi to isl
+3:00 pm 4:45 pm khi to isl
+7:00 pm 8:45 pm khi to isl
+________________________________
+LHR TO KHI
+--------------------------------
+11:00 am 12:45 Pm isl to khi 
+5:00 pm 6:45 pm isl to khi
+9:00 pm 10:45 pm isl to khi
+
+_____________________________
+ISL TO LHR
+-------------------------------
+9:00 am 10:00 am isl to lhr
+5:00 pm 6:00 pm isl to lhr
+_____________________________
+LHR TO ISL
+------------------------------
+11:00 am 12 am lhr to isl
+7:00 pm to 8:00pm lhr to isl
+
+
+
